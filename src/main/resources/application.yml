@@ -1,0 +1,23 @@
+server:
+  port: 49822
+  servlet:
+    context-path: /preview
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+
+config:
+  keepalive: ${CAMERASERVER_KEEPALIVE:1}
+  push_host: ${CAMERASERVER_PUSH_HOST:127.0.0.1}
+  pull_host: ${CAMERASERVER_HOST_EXTRA:127.0.0.1}
+  push_port: ${CAMERASERVER_PUSH_PORT:2935}
+  pull_port: ${CAMERASERVER_PUSH_PORT:28080}
+
+# sdk所在的文件夹
+sdk:
+  hikvision: C:\Users\Administrator\Desktop\CH-HCNetSDKV6.1.9.4_build20220412_win64
+  dahuatech: C:\Users\Administrator\Desktop\General_NetSDK_ChnEng_JAVA_Win64_IS_V3.055.0000000.1.R.220727

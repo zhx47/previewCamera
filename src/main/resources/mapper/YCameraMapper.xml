@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.zhx47.previewcamera.dao.YCameraMapper">
+    <resultMap id="BaseResultMap" type="xyz.zhx47.previewcamera.entity.YCamera">
+        <!--@mbg.generated-->
+        <!--@Table y_camera-->
+        <id column="ID" jdbcType="BIGINT" property="id"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="CHANNEL_NO" jdbcType="VARCHAR" property="channelNo"/>
+        <result column="SCENIC_UNION_ID" jdbcType="VARCHAR" property="scenicUnionId"/>
+        <result column="SCENIC_NAME" jdbcType="VARCHAR" property="scenicName"/>
+        <result column="SCENIC_LEVEL" jdbcType="TINYINT" property="scenicLevel"/>
+        <result column="RECOMMEND_FLG" jdbcType="TINYINT" property="recommendFlg"/>
+        <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode"/>
+        <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName"/>
+        <result column="CAMERA_TYPE" jdbcType="TINYINT" property="cameraType"/>
+        <result column="IP_ADDRESS" jdbcType="VARCHAR" property="ipAddress"/>
+        <result column="PORT" jdbcType="INTEGER" property="port"/>
+        <result column="USER_NAME" jdbcType="VARCHAR" property="userName"/>
+        <result column="PASSWORD" jdbcType="VARCHAR" property="password"/>
+        <result column="VALID" jdbcType="TINYINT" property="valid"/>
+        <result column="ETL_TIME" jdbcType="TIMESTAMP" property="etlTime"/>
+    </resultMap>
+
+    <select id="queryCameraById" resultMap="BaseResultMap">
+        select * from y_camera where valid = 1 and id = #{cameraId}
+    </select>
+</mapper>
