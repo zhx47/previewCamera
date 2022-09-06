@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -135,7 +136,11 @@ public class CameraController {
         }
         // 执行任务
         CameraThread.MyRunnable job = new CameraThread.MyRunnable(yCamera);
-        CameraThread.MyRunnable.es.execute(job);
+        job.start();
+//        CameraThread.MyRunnable.es.execute(job);
+//        ThreadPoolExecutor ess = (ThreadPoolExecutor) CameraThread.MyRunnable.es;
+//        logger.info("线程池线程数：{}", ess.getActiveCount());
+//        logger.info("线程池线程总数：{}", ess.getPoolSize());
         JOBMAP.put(token, job);
         return true;
     }

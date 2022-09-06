@@ -46,8 +46,6 @@ public class PreviewCameraApplication {
         for (String key : keys) {
             CameraController.JOBMAP.get(key).setInterrupted(key);
         }
-        // 关闭线程池
-        CameraThread.MyRunnable.es.shutdown();
         // 销毁定时器
         CameraTimer.timer.cancel();
     }

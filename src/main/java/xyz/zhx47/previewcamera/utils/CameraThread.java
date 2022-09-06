@@ -20,12 +20,10 @@ public class CameraThread {
 
     private final static Logger logger = LoggerFactory.getLogger(CameraThread.class);
 
-    public static class MyRunnable implements Runnable {
+    public static class MyRunnable extends Thread {
 
         // 创建线程池
-        public static ExecutorService es = Executors.newCachedThreadPool();
         private YCamera cameraPojo;
-        private boolean running = true;
         private HikvisionSDKUtil hikvisionSDKUtil = null;
         private DahuatechSDKUtil dahuatechSDKUtil = null;
 
@@ -50,7 +48,6 @@ public class CameraThread {
                         cameraPush.setExitcode(1);
                     }
                 }
-                this.running = false;
                 // 清除缓存
                 CacheUtil.STREATMAP.remove(cameraPojo.getToken());
                 CameraController.JOBMAP.remove(cameraPojo.getToken());
@@ -92,8 +89,6 @@ public class CameraThread {
                     }
                 } else {
                     push.start();
-                }
-                while (running) {
                 }
                 // 清除缓存
                 CacheUtil.STREATMAP.remove(cameraPojo.getToken());

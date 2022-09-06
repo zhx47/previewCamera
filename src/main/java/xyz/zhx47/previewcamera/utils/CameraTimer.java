@@ -49,6 +49,6 @@ public class CameraTimer implements CommandLineRunner {
                     }
                 }
             }
-        }, 1, 1000 * 60);
+        }, 1, 1000 * 10);
     }
 }
